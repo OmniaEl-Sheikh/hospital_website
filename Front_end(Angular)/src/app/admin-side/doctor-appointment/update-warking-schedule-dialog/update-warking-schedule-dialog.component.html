@@ -1,0 +1,32 @@
+<h1 mat-dialog-title>Update Working Schedule</h1>
+<mat-divider></mat-divider>
+
+<form [formGroup]="editWorkingSchedule" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content>
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+
+      <mat-form-field appearance="fill">
+        <mat-label>Day</mat-label>
+        <mat-select formControlName="working_Schedule_Day">
+          <mat-option *ngFor="let day of days" [value]="day.value">{{ day.viewValue }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Start Time</mat-label>
+        <input matInput formControlName="working_Schedule_Start_Time" type="time">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>End Time</mat-label>
+        <input matInput formControlName="Working_Schedule_End_Time" type="time">
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="editWorkingSchedule.invalid" type="submit">Add</button>
+  </div>
+</form>

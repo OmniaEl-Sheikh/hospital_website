@@ -1,0 +1,16 @@
+ul li {
+  list-style: none;
+  margin-left: 100px;
+
+}
+
+
+mat-toolbar{
+  background-color: white;
+  color:#1F2B5B;
+}
+
+img{
+  height: 200px;
+  width: 230px;
+}

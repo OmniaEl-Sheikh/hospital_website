@@ -1,0 +1,30 @@
+<h1 mat-dialog-title > Add Specialization </h1>
+<mat-divider></mat-divider>
+
+<form  [formGroup]="addSpecializationForm" (ngSubmit)="onSave()">
+<div mat-dialog-content>
+
+    <div class="container" >
+
+
+
+        <mat-form-field appearance="fill"  >
+            <mat-label>Specialization_Name </mat-label>
+           <input matInput   formControlName="specialization_Name">
+           </mat-form-field>
+
+           <mat-form-field appearance="fill"  >
+            <mat-label>Specialization_Description</mat-label>
+           <input matInput   formControlName="specialization_Description">
+           </mat-form-field>
+
+     </div>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancle</button>
+    <button mat-raised-button color="primary"  [disabled]="addSpecializationForm.invalid" type="submit" >Save</button>
+
+  </div>
+
+</form>

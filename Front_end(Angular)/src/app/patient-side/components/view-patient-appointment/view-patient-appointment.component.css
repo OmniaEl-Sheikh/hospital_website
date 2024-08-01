@@ -1,0 +1,19 @@
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+}
+
+.mat-table {
+  width: 100%;
+  text-align: center;
+}
+
+.dark-blue {
+  color: darkblue;
+  font-weight: bold;
+}
+
+.center-text {
+  text-align: center;
+}

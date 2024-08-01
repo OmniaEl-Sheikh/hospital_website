@@ -1,0 +1,90 @@
+<div class="container" style="margin: 10px;">
+    <div class="add " fxLayoutAlign="flex-start">
+        <button mat-raised-button color="primary"  (click)="addDialog()" >  Add new patient  </button>
+    </div>
+  </div>
+  
+  <div class="table-container">
+      <mat-form-field>
+        <mat-label>Filter</mat-label>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name">
+      </mat-form-field>
+    
+      <table mat-table [dataSource]="dataSource" matSort>
+
+         <!-- id Column -->
+        <ng-container matColumnDef="ID">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+          <td mat-cell *matCellDef="let element">{{element.ID}}</td>
+        </ng-container>
+    
+        <!-- Name Column -->
+        <ng-container matColumnDef="name">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>Name</th>
+          <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+    
+
+         <!-- email Column -->
+         <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>email</th>
+            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+          </ng-container>
+
+           <!-- password Column -->
+        <ng-container matColumnDef="password">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Password</th>
+            <td mat-cell *matCellDef="let element">{{element.password}}</td>
+          </ng-container>
+
+           <!-- gender Column -->
+        <ng-container matColumnDef="gender">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Gender</th>
+            <td mat-cell *matCellDef="let element">{{element.gender}}</td>
+          </ng-container>
+
+           <!-- birth_date Column -->
+        <ng-container matColumnDef="birth_date">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Birth_date</th>
+            <td mat-cell *matCellDef="let element">{{element.birth_date}}</td>
+          </ng-container>
+
+            <!-- receptionist_id Column -->
+        <ng-container matColumnDef="receptionist_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>receptionist_id</th>
+            <td mat-cell *matCellDef="let element">{{element.receptionist_id}}</td>
+          </ng-container>
+
+            <!-- specialization_id Column
+        <ng-container matColumnDef="specialization_id">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>specialization_id</th>
+            <td mat-cell *matCellDef="let element">{{element.specialization_id}}</td>
+          </ng-container> -->
+
+           <!-- phone Column -->
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header>Phone</th>
+            <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+          </ng-container>
+  
+         <!-- Actions -->
+         <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef> Actions</th>
+          <td mat-cell *matCellDef="let element" > 
+               <button mat-mini-fab color="light" class="icon" >
+                  <mat-icon color="primary"  >edit</mat-icon>
+               </button>  
+  
+               <button mat-mini-fab color="light" class="icon"     >
+                <mat-icon color="warn">delete</mat-icon>
+             </button>
+          </td>
+      </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    
+      <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+    

@@ -1,0 +1,40 @@
+.table-container {
+    margin: 20px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+  
+  table {
+    width: 100%;
+  }
+ 
+.table-container {
+  margin: 20px;
+  overflow-x: auto;
+}
+
+.icon {
+  margin: 0 5px;
+}
+
+@media (max-width: 600px) {
+  .add {
+    justify-content: center !important;
+    margin-bottom: 10px;
+  }
+
+  mat-form-field {
+    margin-bottom: 10px;
+  }
+
+  .icon {
+    margin: 2px;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 8px;
+  }
+}

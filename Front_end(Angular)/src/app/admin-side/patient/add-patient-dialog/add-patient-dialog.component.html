@@ -1,0 +1,97 @@
+<h1 mat-dialog-title > Add new doctor </h1>
+<mat-divider></mat-divider>
+
+<form  [formGroup]="addDoctorForm" >
+<div mat-dialog-content>
+    
+    <div class="container" >
+        
+         <mat-form-field appearance="fill"  >
+         <mat-label>doctor id </mat-label>
+        <input matInput formControlName="ID" >
+        </mat-form-field>
+
+        <mat-form-field appearance="fill"  >
+            <mat-label>Name  </mat-label>
+           <input matInput   formControlName="name">
+           </mat-form-field>
+
+           <mat-form-field appearance="fill">
+            <mat-label>Gender</mat-label>
+            <mat-select placeholder=" choose gender"   formControlName="gender">
+              <mat-option *ngFor="let gender of genderOptions" [value]="gender">
+                {{ gender }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+
+           </div>
+
+           <div class="container">
+
+            <mat-form-field class="example-chip-list">
+                <mat-label>phone numbers </mat-label>
+                <mat-chip-grid #chipGrid aria-label="Enter phone number  ">
+                  <mat-chip-row
+                    *ngFor="let phone of phones"
+                    (removed)="remove(phone)"
+                    [editable]="true"
+                    (edited)="edit(phone, $event)"
+                    [aria-description]="'press enter to edit ' + phone">
+                    {{ phone }}
+                    <button matChipRemove [attr.aria-label]="'remove ' + phone">
+                      <mat-icon>cancel</mat-icon>
+                    </button>
+                  </mat-chip-row>
+                  <input placeholder="new number... "
+                         [matChipInputFor]="chipGrid"
+                         [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                         [matChipInputAddOnBlur]="addOnBlur"
+                         (matChipInputTokenEnd)="add($event)"
+                         formControlName="phones" />
+                </mat-chip-grid>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill"  >
+                <mat-label>receptionist_id </mat-label>
+               <input matInput formControlName="receptionist_id" >
+               </mat-form-field>
+
+              
+
+           </div>
+
+            
+    <div class="container" >
+        
+        <mat-form-field appearance="fill"  >
+        <mat-label> birth_date </mat-label>
+       <input matInput formControlName="birth_date"  type="date" >
+       </mat-form-field>
+
+       <mat-form-field appearance="fill"  >
+        <mat-label>Email</mat-label>
+       <input matInput   formControlName="email" type="email">
+       </mat-form-field>
+
+       <mat-form-field appearance="fill"  >
+           <mat-label>password  </mat-label>
+          <input matInput   formControlName="password" type="password">
+          </mat-form-field>
+
+          
+
+          </div>
+
+          
+
+
+     </div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mat-raised-button color="warn" mat-dialog-close>Cancle</button>
+    <button mat-raised-button color="primary"  [disabled]="addDoctorForm.invalid" type="submit" >Save</button>
+ 
+  </div>
+
+</form>

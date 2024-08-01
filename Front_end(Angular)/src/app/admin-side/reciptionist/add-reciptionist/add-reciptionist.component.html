@@ -1,0 +1,77 @@
+<h1 mat-dialog-title>Add New Receptionist</h1>
+<mat-divider></mat-divider>
+
+<form [formGroup]="addReceptionistForm" (ngSubmit)="onSave()">
+  <div mat-dialog-content>
+    <div class="container">
+      <mat-form-field appearance="fill">
+        <mat-label>Receptionist ID</mat-label>
+        <input matInput formControlName="user_National_ID">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="userName">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Confirm Password</mat-label>
+        <input matInput formControlName="confirmPassword" type="password">
+      </mat-form-field>
+
+      <div class="container">
+        <mat-form-field appearance="fill">
+          <mat-label>Phone</mat-label>
+          <input matInput formControlName="phoneNumber" type="tel">
+        </mat-form-field>
+
+        <div class="container">
+          <mat-form-field appearance="fill">
+            <mat-label>Birth Date</mat-label>
+            <input matInput formControlName="birthDate" type="date">
+          </mat-form-field>
+
+
+
+
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select placeholder="Choose gender" formControlName="gender">
+          <mat-option *ngFor="let gender of genderOptions" [value]="gender">
+            {{ gender }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+
+
+
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <div mat-dialog-actions align="end">
+    <button mat-raised-button mat-dialog-close>Cancel</button>
+    <button mat-raised-button color="primary" [disabled]="addReceptionistForm.invalid" type="submit">Save</button>
+  </div>
+<!-- </form> -->

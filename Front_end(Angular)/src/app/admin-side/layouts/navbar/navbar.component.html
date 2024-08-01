@@ -1,0 +1,26 @@
+<div >
+    <mat-toolbar >
+        <mat-toolbar-row>
+            <span> <img src="../../../../assets/img/logo.png" > </span>
+            <button mat-icon-button  (click)="toggleSideBar()" >
+                <mat-icon>menu</mat-icon>
+            </button>
+
+            <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+                <ul fxLayout="row" fxLayoutGap="20px">
+
+                      <button mat-icon-button (click)="logout()">
+                          <mat-icon>exit_to_app</mat-icon>
+                      </button>
+
+                      <button mat-icon-button  routerLink="/profile">
+                        <mat-icon>person</mat-icon>
+                    </button>
+                    <li>
+
+                    </li>
+                </ul>
+            </div>
+        </mat-toolbar-row>
+    </mat-toolbar>
+</div>

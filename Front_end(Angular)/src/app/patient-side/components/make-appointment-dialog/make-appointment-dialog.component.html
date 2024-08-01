@@ -1,0 +1,16 @@
+<div>
+  <h2>Make Appointment</h2>
+
+  <p>Please select a date and time for your appointment:</p>
+  <mat-form-field>
+    <input matInput type="datetime-local" placeholder="Appointment Date and Time" [(ngModel)]="appointmentDate" required>
+  </mat-form-field>
+
+  <p *ngIf="errorMessage" style="color: red;">{{ errorMessage }}</p>
+  <p *ngIf="isSuccess" style="color: green;">Appointment made successfully!</p>
+
+  <p>Doctor's appointment intervals are 30 minutes each.</p>
+
+  <button mat-button color="primary" (click)="makeAppointment()">Confirm Appointment</button>
+  <button mat-button (click)="dialogRef.close()">Cancel</button>
+</div>

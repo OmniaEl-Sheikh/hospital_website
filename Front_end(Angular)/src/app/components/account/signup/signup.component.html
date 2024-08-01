@@ -1,0 +1,100 @@
+<div class="container-fluid">
+  <section class="wrapper">
+      <div class="form signup"  >
+        <header >
+          <img src="../../../../assets/img/logo.png" alt="Profile Image" style="width: 120px; height: 100px;">
+          <span>Signup</span>
+        </header>
+        <form [formGroup]="registerForm" (ngSubmit)="handleForm()">
+          <div class="row">
+            <div class="col-5">
+              <input #user_National_ID formControlName="user_National_ID" type="text" placeholder="National ID" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('user_National_ID')?.errors &&(registerForm.get('user_National_ID')?.touched||user_National_ID.value.length>0)">
+                <p *ngIf="registerForm.get('user_National_ID')?.getError('required')">National Id is Required</p>
+              </div>
+            </div>
+
+            <div class="col-1"></div>
+            <div class="col-5">
+              <input #fullName formControlName="fullName" type="text" placeholder="Full name" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('fullName')?.errors &&(registerForm.get('fullName')?.touched||fullName.value.length>0)">
+                <p *ngIf="registerForm.get('fullName')?.getError('required')">Name is Required</p>
+                <p *ngIf="registerForm.get('fullName')?.getError('minLength')">Name is Short</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <input #userName formControlName="userName" type="text" placeholder="User name" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('userName')?.errors &&(registerForm.get('userName')?.touched||userName.value.length>0)">
+                <p *ngIf="registerForm.get('userName')?.getError('required')">UserName is Required</p>
+                <p *ngIf="registerForm.get('userName')?.getError('minLength')">UserName is Short</p>
+              </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+              <input #email formControlName="email" type="text" placeholder="Email address" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('email')?.errors &&(registerForm.get('email')?.touched||email.value.length>0)">
+                <p *ngIf="registerForm.get('email')?.getError('required')">email is Required</p>
+                <p *ngIf="registerForm.get('email')?.getError('email')">email invalid</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <input #password formControlName="password" type="password" placeholder="Password" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('password')?.errors &&(registerForm.get('password')?.touched||password.value.length>0)">
+                <p *ngIf="registerForm.get('password')?.getError('required')">password is Required</p>
+                <p *ngIf="registerForm.get('password')?.getError('pattern')">start with upper case then numbers</p>
+                <p *ngIf="registerForm.get('password')?.getError('minLength')">Password is short</p>
+              </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+              <input #confirmPassword formControlName="confirmPassword" type="password" placeholder="Confirm Password" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('rePassword')?.errors &&(registerForm.get('confirmPassword')?.touched||confirmPassword.value.length>0)">
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('required')">password is Required</p>
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('pattern')">start with upper case then numbers</p>
+                <p *ngIf="registerForm.get('confirmPassword')?.getError('minLength')">Password is short</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <input #phoneNumber formControlName="phoneNumber" type="phone" placeholder="Phone Number" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('phoneNumber')?.errors &&(registerForm.get('phoneNumber')?.touched||phoneNumber.value.length>0)">
+                <p *ngIf="registerForm.get('phoneNumber')?.getError('required')">phone is Required</p>
+                <p *ngIf="registerForm.get('phoneNumber')?.getError('pattern')">Egypt Phone</p>
+              </div>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-5">
+              <input #birthDate formControlName="birthDate" type="date" placeholder="Birth Date" required style="width: 190px;" />
+              <div class="alert alert-danger" *ngIf="registerForm.get('birthDate')?.errors &&(registerForm.get('birthDate')?.touched||birthDate.value.length>0)">
+                <p *ngIf="registerForm.get('birthDate')?.getError('required')">birthDate is Required</p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-5">
+              <select #gender formControlName="gender" name="gender" id="gender" style="width: 390px;" (change)="onGenderChange($event)">
+                <option value="" disabled selected>Select Gender</option>
+                <option [value]="0">Male</option>
+                <option [value]="1">Female</option>
+              </select>
+              <!-- <input #gender formControlName="gender" type="number" placeholder="gender" required style="width: 190px;"> -->
+              <div class="alert alert-danger" *ngIf="registerForm.get('gender')?.errors &&(registerForm.get('gender')?.touched||gender.value.length>0)">
+                <p *ngIf="registerForm.get('gender')?.getError('required')">gender is Required</p>
+              </div>
+            </div>
+          </div>
+          <input type="submit" value="Signup" style="width: 390px;" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <header  > <a routerLink="/login" >Login</a></header>
+      </div>
+
+  </section>
+</div>

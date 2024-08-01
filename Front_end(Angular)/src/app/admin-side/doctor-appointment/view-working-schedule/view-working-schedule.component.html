@@ -1,0 +1,56 @@
+<div class="container" style="margin: 10px;">
+  <div class="add" fxLayoutAlign="flex-start">
+    <button mat-raised-button color="primary" (click)="addDialog()">Add Working Schedule</button>
+  </div>
+</div>
+
+<div class="table-container">
+  <mat-form-field>
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. name">
+  </mat-form-field>
+
+  <table mat-table [dataSource]="dataSource" matSort>
+
+    <!-- ID Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <!-- Day Column -->
+    <ng-container matColumnDef="working_Schedule_Day">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Day</th>
+      <td mat-cell *matCellDef="let element">{{getDayName(element.working_Schedule_Day)}}</td>
+    </ng-container>
+
+    <!-- Start Time Column -->
+    <ng-container matColumnDef="working_Schedule_Start_Time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>Start Time</th>
+      <td mat-cell *matCellDef="let element">{{element.working_Schedule_Start_Time}}</td>
+    </ng-container>
+
+    <!-- End Time Column -->
+    <ng-container matColumnDef="working_Schedule_End_Time">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header>End Time</th>
+      <td mat-cell *matCellDef="let element">{{element.working_Schedule_End_Time}}</td>
+    </ng-container>
+
+
+
+    <!-- Actions Column -->
+    <ng-container matColumnDef="action">
+      <th mat-header-cell *matHeaderCellDef>Actions</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-mini-fab color="light" class="icon" (click)="delete(element.id)">
+          <mat-icon color="primary">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+</div>

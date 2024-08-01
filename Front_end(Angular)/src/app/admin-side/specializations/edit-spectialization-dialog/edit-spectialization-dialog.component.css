@@ -1,0 +1,30 @@
+
+
+.container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  
+  mat-form-field {
+    width: 100%;
+  }
+  
+  mat-dialog-content {
+    overflow: hidden;
+  }
+  
+  @media (max-width: 600px) {
+    .container {
+      padding: 8px;
+    }
+  
+    mat-dialog-actions {
+      justify-content: center;
+    }
+  
+    button {
+      margin: 8px 0;
+    }
+  }
+  

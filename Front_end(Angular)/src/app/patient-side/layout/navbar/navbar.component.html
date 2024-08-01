@@ -1,0 +1,37 @@
+<div>
+  <mat-toolbar>
+    <mat-toolbar-row>
+      <span>
+        <img src="../../../../assets/img/logo.png">
+      </span>
+
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-center">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <li>
+            <button mat-icon-button routerLink="/p/patient-appointments">
+              <span>Appointment</span>
+            </button>
+          </li>
+
+          <li>
+            <button mat-icon-button routerLink="/p">
+              <span>Doctors</span>
+            </button>
+          </li>
+        </ul>
+      </div>
+
+      <div fxFlex fxLayout="row" fxLayoutAlign="flex-end">
+        <ul fxLayout="row" fxLayoutGap="20px">
+          <button mat-icon-button (click)="logout()">
+            <mat-icon>exit_to_app</mat-icon>
+          </button>
+
+          <button mat-icon-button routerLink="/p/profile">
+            <mat-icon>person</mat-icon>
+          </button>
+        </ul>
+      </div>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</div>

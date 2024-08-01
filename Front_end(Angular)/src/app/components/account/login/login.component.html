@@ -1,0 +1,36 @@
+<div class="container-fluid">
+  <section  class="wrapper" >
+      <div class="form signup">
+        <header >
+          <img  src="../../../../assets/img/logo.png " alt="Profile Image" style="width: 120px; height: 100px;">
+         <span>Login </span>
+
+        </header>
+        <form action="#" [formGroup]="loginform" (ngSubmit)="handleform()">
+
+          <input #email type="text" placeholder="Email address" required formControlName="email" name="email"/>
+
+
+          <div class="alert alert-danger" *ngIf="loginform.get('email')?.errors &&(loginform.get('email')?.touched||email.value.length>0)">
+            <p *ngIf="loginform.get('email')?.getError('required')">email is Required</p>
+            <p *ngIf="loginform.get('email')?.getError('email')">email invalid</p>
+          </div>
+
+         <input #password type="password" placeholder="Password" required formControlName="password"/>
+
+         <div class="alert alert-danger" *ngIf="loginform.get('password')?.errors &&(loginform.get('password')?.touched||password.value.length>0)">
+          <p *ngIf="loginform.get('password')?.getError('required')">password is Required</p>
+          <p *ngIf="loginform.get('password')?.getError('pattern')">start with upper case then numbers</p>
+          <p *ngIf="loginform.get('password')?.getError('minLength')">Password is short</p>
+        </div>
+          <input type="submit" value="Login" />
+        </form>
+      </div>
+
+      <div class="form login">
+        <a routerLink="/signup">
+        <header >SignUp</header>
+        </a>
+      </div>
+    </section>
+</div>

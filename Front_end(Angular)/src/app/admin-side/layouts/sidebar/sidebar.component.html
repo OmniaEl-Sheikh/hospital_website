@@ -1,0 +1,51 @@
+<mat-nav-list ngSkipHydration>
+    <div class="profile-card">
+      <img src="../../../../assets/img/about-img.jpg" alt="Profile Image">
+
+      <div class="header">
+        <h4>{{name}}</h4>
+        <h4>{{auth}}</h4>
+      </div>
+    </div>
+
+    <mat-divider></mat-divider>
+
+    <a *ngIf="auth=='doctor'" mat-list-item routerLinkActive="list-item-active" routerLink="working-schedule">
+      <mat-icon>dashboard</mat-icon>
+      <span>Working-schedule</span>
+    </a>
+    <a *ngIf="auth=='recieption'" mat-list-item routerLinkActive="list-item-active" routerLink="appointment">
+      <mat-icon>schedule</mat-icon>
+      <span>Appointments</span>
+    </a>
+
+    <a *ngIf="auth=='doctor'" mat-list-item routerLinkActive="list-item-active" routerLink="doctor-appointment">
+      <mat-icon>schedule</mat-icon>
+      <span>Doctor-Appointments</span>
+    </a>
+
+
+    <a *ngIf="auth=='recieption'" mat-list-item routerLinkActive="list-item-active" routerLink="patient">
+      <mat-icon>healing</mat-icon>
+      <span>Patients</span>
+    </a>
+
+    <a *ngIf="auth=='admin'" mat-list-item routerLinkActive="list-item-active" routerLink="admin">
+      <mat-icon>person</mat-icon>
+      <span>Admin</span>
+    </a>
+    <a *ngIf="auth=='admin'" mat-list-item routerLinkActive="list-item-active" routerLink="reciptionist">
+      <mat-icon>support_agent</mat-icon>
+      <span>Receptionist</span>
+    </a>
+
+    <a *ngIf="auth=='admin'" mat-list-item routerLinkActive="list-item-active" routerLink="doctor">
+      <mat-icon>medical_services</mat-icon>
+      <span>Doctors</span>
+    </a>
+
+    <a *ngIf="auth=='admin'" mat-list-item routerLinkActive="list-item-active" routerLink="/d/">
+      <mat-icon>assignment</mat-icon>
+      <span>Specializations </span>
+    </a>
+  </mat-nav-list>

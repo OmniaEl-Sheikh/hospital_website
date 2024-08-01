@@ -1,0 +1,90 @@
+<h1 mat-dialog-title>Edit Doctor</h1>
+<div mat-dialog-content>
+  <form [formGroup]="editDoctorForm">
+
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>doctor_ID</mat-label>
+        <input matInput formControlName="doctor_ID" readonly>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Admin ID</mat-label>
+        <input matInput formControlName="admin_ID" readonly>
+      </mat-form-field>
+
+    </div>
+
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>specializationId</mat-label>
+        <input matInput formControlName="specializationId" >
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>User National ID</mat-label>
+        <input matInput formControlName="user_National_ID">
+      </mat-form-field>
+
+
+    </div>
+
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>Full Name</mat-label>
+        <input matInput formControlName="fullName">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="email" type="email">
+      </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>Street</mat-label>
+      <input matInput formControlName="street">
+    </mat-form-field>
+
+    </div>
+
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+
+      <mat-form-field>
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" type="password">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Gender</mat-label>
+        <mat-select formControlName="gender" (change)="onGenderChange($event)">
+          <mat-option *ngFor="let option of genderOptions" [value]=option>{{ option }}</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+    <mat-form-field>
+      <mat-label>City</mat-label>
+      <input matInput formControlName="city">
+    </mat-form-field>
+
+    </div>
+
+
+    <div class="container" fxLayout="column" fxLayoutGap="16px">
+      <mat-form-field>
+        <mat-label>Birth Date</mat-label>
+        <input matInput formControlName="birthDate" type="date">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>building_Number</mat-label>
+        <input matInput formControlName="building_Number">
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Phone</mat-label>
+        <input matInput formControlName="phone">
+      </mat-form-field>
+
+    </div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Cancle</button>
+  <button mat-raised-button color="primary"  [disabled]="editDoctorForm.invalid" type="submit" (click)="updateDoctor()">Edit</button>
+
+</div>
