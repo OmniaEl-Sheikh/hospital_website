@@ -8,15 +8,14 @@ Departments: Detailed information about each department, including services offe
 Doctor Profiles: Comprehensive profiles of doctors, including specialties, qualifications, and available appointment times.
 Online Appointment Booking: Allows patients to book appointments online with their preferred doctors.
 Patient Portal: Secure access for patients to view their medical records, lab results, and appointment history.
-News & Events: Latest news, health tips, and upcoming events related to the hospital.
 Contact Us: Easy-to-use contact form and information about the hospital's location, phone numbers, and hours of operation.
 Technologies Used
-Frontend:
+Frontend
 HTML5
 CSS3
 JavaScript (with frameworks like React or Angular if applicable)
 Bootstrap (for responsive design)
-Backend:
+Backend
 C# (.NET Core or ASP.NET)
 SQL Server (for database management)
 Entity Framework (for database access)
